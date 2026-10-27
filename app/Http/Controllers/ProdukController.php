@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 class ProdukController extends Controller 
 { 
+    /*
     public function index() 
     { 
         $produk = [ 
@@ -15,16 +16,29 @@ class ProdukController extends Controller
         ]; 
         return view('produk.index', compact('produk')); 
     } 
+    */
 
-    public function show($id) // parameter dari URL 
+
+    public function index(){
+        return view('produk.bio');
+    }
+    
+  /*  public function show($id) // parameter dari URL 
     { 
         abort_unless($id <= 2, 404); 
         return view('produk.show', ['id' => $id]); 
-    } 
+
+    } */
+
+    public function show($id){
+        $data = $id;
+        return view('produk.show', compact('data'));
+    }
 
     public function store(Request $request) 
     { 
         $data = $request->validate(['nama' => 'required|max:100', 'harga' => 'required|integer']);
         return redirect()->route('produk.index')->with('status', 'Tersimpan'); 
     } 
+    
 }

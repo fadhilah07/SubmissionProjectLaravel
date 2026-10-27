@@ -18,3 +18,4 @@
     <tr><td colspan="5">Belum ada produk.</td></tr> 
   @endforelse 
 </table>
+
