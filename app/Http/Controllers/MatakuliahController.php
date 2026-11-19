@@ -7,7 +7,7 @@ use App\Models\Matakuliah;
 
 class MatakuliahController extends Controller
 {
-    public function index()
+   public function index()
     {
         $matakuliahs = Matakuliah::all();
         return view('matakuliah.index', compact('matakuliahs'));
@@ -21,7 +21,7 @@ class MatakuliahController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'kode_matakuliah' => 'required|string|max:20|unique:matakuliahs,kode_matakuliah',
+            'kode_matakuliah' => 'required|string|max:20|unique:matakuliah,kode_matakuliah',
             'nama_matakuliah' => 'required|string|max:100',
             'sks' => 'required|integer|min:1|max:6',
         ]);
@@ -35,10 +35,9 @@ class MatakuliahController extends Controller
         return redirect()->route('matakuliah.index')
             ->with('success', 'Data mata kuliah berhasil ditambahkan.');
     }
-
     public function show($id)
-    {
-        $matakuliah = Matakuliah::findOrFail($id);
-        return view('matakuliah.show', compact('matakuliah'));
-    }
+{
+    $matakuliah = Matakuliah::findOrFail($id);
+    return view('matakuliah.show', compact('matakuliah'));
+}
 }

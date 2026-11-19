@@ -5,7 +5,6 @@
     <title>Tambah Mata Kuliah</title>
 </head>
 <body>
-
     <h1>Tambah Data Mata Kuliah</h1>
 
     <form action="{{ route('matakuliah.store') }}" method="POST">
@@ -36,7 +35,6 @@
 
         <button type="submit">Simpan</button>
         <a href="{{ route('matakuliah.index') }}">Kembali</a>
-        
     </form>
 </body>
 </html>
